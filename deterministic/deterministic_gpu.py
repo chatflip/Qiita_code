@@ -6,6 +6,7 @@ import torchvision
 import torch.nn as nn
 import torch.optim as optim
 import torch.nn.functional as F
+import torch.backends.cudnn as cudnn
 
 from torchvision import datasets, transforms
 
@@ -83,17 +84,17 @@ class RandomPrint(object):
         print (random.random())
         return samples
 
-#changed 
 def worker_init_fn(worker_id):
     random.seed(1+worker_id)
 
 if __name__ == "__main__":
     args = opt()
 
-    #changed 
+
     random.seed(1)
     torch.manual_seed(1)
-    torch.cudnn.deterministic = True
+    #changed 
+    cudnn.deterministic = True
 
     use_cuda = not args.no_cuda and torch.cuda.is_available()
     device = torch.device("cuda" if use_cuda else "cpu")
