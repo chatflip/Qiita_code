@@ -73,7 +73,7 @@ def opt():
     parser.add_argument("--momentum", type=float, default=0.9, metavar="M", help="SGD momentum (default: 0.9)")
     parser.add_argument("--weight_decay", type=float, default=0.0001, metavar="M", help="weight decay (default: 0.0001)")
     parser.add_argument("--no-cuda", action="store_true", default=False, help="disables CUDA training")
-    parser.add_argument("--num_workers", type=int, default=0, help="num of pallarel threads(dataloader)")
+    parser.add_argument("--num_workers", type=int, default=4, help="num of pallarel threads(dataloader)")
     parser.add_argument("--log-interval", type=int, default=1, metavar="N", help="how many batches to wait before logging training status")
     args = parser.parse_args()
     return args
