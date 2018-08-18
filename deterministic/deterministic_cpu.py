@@ -85,7 +85,7 @@ class RandomPrint(object):
 
 #changed 
 def worker_init_fn(worker_id):
-    random.seed(1+worker_id)
+    random.seed(worker_id)
 
 if __name__ == "__main__":
     args = opt()
